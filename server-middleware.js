@@ -2,6 +2,12 @@
 const express= require('express');
 const hbs= require('hbs');
 const fs= require('fs');
+/*Heruko is used to deploy node js application
+Heruko setup the port number upon delpoyment, this posrt will be saved under environment variables
+we will define a const so that port will be resolved dynamically at run time
+NOTE: in order to allow Heruko run you app we should add new scripts in the package.json file
+and to run this script we can execute this command from the terminal npm {scriptname}*/
+const port= process.env.PORT || 3000;
 
 var app = new express();
 
@@ -44,10 +50,11 @@ app.use((req,res,next)=>{
 since we did not call next(); then request will not pass through and maintenance page will be displayed
 NOTE: middleware are executed in order so if we define static pages before loading maintenance page then help page will be
 loaded.*/
-app.use((req,res,next)=>
-{
-  res.render('maintenance.hbs');
-});
+// app.use((req,res,next)=>
+// {
+//   res.render('maintenance.hbs');
+// });
+
 //Define route
 app.get('/',(req,res)=>
 {
@@ -57,6 +64,6 @@ app.get('/',(req,res)=>
 });
 
 //Define port that application listening to
-app.listen(3000,()=>{
-  console.log('server is up at port 3000');
+app.listen(port,()=>{
+  console.log(`server is up at port ${port}`);
 });
