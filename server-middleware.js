@@ -66,9 +66,12 @@ app.get('/',(req,res)=>
 //define new route for projects page
 app.get('/projects', (req,res)=>
 {
-  res.render('projects.hbs',{
-    welcomeMessage:'This is projects page,welome'
-  });
+  // res.render('projects.hbs',{
+  //   welcomeMessage:'This is projects page,welome'
+  // });
+  res.render('home-partial.hbs',{
+    welcomeMessage:'Hi Projects ',pageTitle:'New projects'
+  })
 });
 //Define port that application listening to
 app.listen(port,()=>{
