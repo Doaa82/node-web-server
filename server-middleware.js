@@ -59,7 +59,7 @@ loaded.*/
 app.get('/',(req,res)=>
 {
   res.render('home-partial.hbs',{
-    welcomeMessage:'Hi Doaa Alkhateib'
+    welcomeMessage:'Hi Mais ',pageTitle:'Mais Title'
   })
 });
 
